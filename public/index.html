@@ -3,38 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Poker Betting App</title>
-<style>
-:root {
-  --main-clr: #295E9E;
-  --text-clr-1: #FFFFFF; 
-
-  color: var(--text-clr-1);
-}
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-body {
-  display: flex;
-  background: var(--main-clr);
-}
-section {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  flex: 1;
-}
-</style>
+  <link rel="stylesheet" href="/index.css">
+  <script src="https://cdn.socket.io/4.2.0/socket.io.min.js" integrity="sha384-PiBR5S00EtOj2Lto9Uu81cmoyZqR57XcOna1oAuVuIEjzj0wpqDVfD0JA9eXlRsj" crossorigin="anonymous"></script>
+  <script src="/index.js"></script>
 </head>
 <body>
+  <form id="create-game">
+    <button id="add-players" type="button">+ Add more players</button>
+    <input type="submit" value="Play">
+  </form>
   <section id="players"></section>
-  <section id="pot"></section>
+  <section id="pot">
+    <span id="pot-icon">POT</span>
+    <span id="pot-amount">0</span>
+    <div id="button-container-pot">
+      <input id="pot-to-player" type="text">
+      <button id="give-pot">Give to Player</button>
+    </div>
+  </section>
   <template id="player-card">
     <article class="player">
-      <span id="name"></span>
+      <h1 id="name"></h1>
       <span id="amount"></span>
+      <input id="multi-amount" type="text">
+      <div id="button-container-card">
+        <button id="deposit">Deposit</button>
+        <button id="bet">Bet</button>
+      </div>
     </article>
+  </template>
+  <template id="player-input">
+    <input class="player-input" placeholder="Name" type="text">
   </template>
 </body>
 </html>
